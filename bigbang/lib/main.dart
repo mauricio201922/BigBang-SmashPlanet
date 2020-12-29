@@ -3,15 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flame/util.dart';
 import 'package:bigbang/myGame.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
-void main() {
+void main() async {
   Util flameUtil = Util();
-  flameUtil.fullScreen();
-  flameUtil.setOrientation(DeviceOrientation.portraitUp);
+  WidgetsFlutterBinding.ensureInitialized();
 
   Flame.images.loadAll(<String>[
     'bg/backyard.png',
+    'files/terra.png',
+    'files/marte.png',
+    'files/house-fly-1.png',
+    'files/house-fly-2.png',
+    'files/dead.png',
   ]);
 
   MyGame game = MyGame();

@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:bigbang/myGame.dart';
 import 'package:flame/sprite.dart';
 import 'package:bigbang/myGame.dart';
 
@@ -9,20 +10,16 @@ class Backyard {
 
   Backyard(this.game) {
     bgSprite = Sprite('bg/backyard.png');
-  }
-
-  void render(Canvas c) {
-    bgSprite.renderRect(c, bgRect);
-    resize();
-  }
-
-  void resize() {
     bgRect = Rect.fromLTWH(
       0,
       game.screenSize.height - (game.tileSize * 23),
       game.tileSize * 9,
       game.tileSize * 23,
     );
+  }
+
+  void render(Canvas c) {
+    bgSprite.renderRect(c, bgRect);
   }
 
   void update(double t) {}

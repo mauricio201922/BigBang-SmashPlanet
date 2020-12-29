@@ -1,10 +1,12 @@
 import 'dart:ui';
-import 'package:flame/game.dart';
 import 'package:flame/flame.dart';
+import 'package:flame/game.dart';
 import 'dart:math';
 import 'package:flutter/gestures.dart';
 import 'package:bigbang/components/planets.dart';
+import 'package:bigbang/components/terra.dart';
 import 'package:bigbang/components/backyard.dart';
+import 'package:bigbang/components/marte.dart';
 
 class MyGame extends Game {
   Size screenSize;
@@ -21,8 +23,8 @@ class MyGame extends Game {
 
   void initialize() async {
     flies = List<Planets>();
-    resize(await Flame.util.initialDimensions());
     rnd = Random();
+    resize(await Flame.util.initialDimensions());
 
     background = Backyard(this);
     spawnFly();
@@ -31,7 +33,14 @@ class MyGame extends Game {
   void spawnFly() {
     x = rnd.nextDouble() * (screenSize.width - tileSize);
     y = rnd.nextDouble() * (screenSize.height - tileSize);
-    flies.add(Planets(this, x, y));
+    switch (rnd.nextInt(2)) {
+      case 0:
+        flies.add(Terra(this, x, y));
+        break;
+      case 1:
+        flies.add(Marte(this, x, y));
+        break;
+    }
   }
 
   void render(Canvas canvas) {
