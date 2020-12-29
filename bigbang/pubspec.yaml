@@ -50,6 +50,7 @@ flutter:
     - assets/images/files/terra.png
     - assets/images/files/marte.png
     - assets/images/files/dead.png
+    - assets/audio/sfx/explosion.mp3
 
   # To add assets to your application, add an assets section, like this:
   # assets:

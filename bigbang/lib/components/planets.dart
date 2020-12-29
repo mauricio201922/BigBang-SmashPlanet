@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flame/sprite.dart';
 import 'package:bigbang/myGame.dart';
+import 'package:flame/flame.dart';
 
 class Planets {
   Rect flyRect;
@@ -56,5 +57,6 @@ class Planets {
   void onTapDown() {
     isDead = true;
     game.spawnFly();
+    Flame.audio.play('sfx/explosion.mp3');
   }
 }

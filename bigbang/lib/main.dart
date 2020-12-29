@@ -16,6 +16,11 @@ void main() async {
     'files/dead.png',
   ]);
 
+  Flame.audio.disableLog();
+  Flame.audio.loadAll(<String>[
+    'sfx/explosion.mp3',
+  ]);
+
   MyGame game = MyGame();
   runApp(game.widget);
 

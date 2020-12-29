@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:bigbang/view.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'dart:math';
@@ -15,7 +16,11 @@ class MyGame extends Game {
   Random rnd;
   double x, y;
 
+  int score;
+
   Backyard background;
+
+  View activeView = View.home;
 
   MyGame() {
     initialize();
@@ -24,6 +29,7 @@ class MyGame extends Game {
   void initialize() async {
     flies = List<Planets>();
     rnd = Random();
+    score = 0;
     resize(await Flame.util.initialDimensions());
 
     background = Backyard(this);
@@ -62,6 +68,8 @@ class MyGame extends Game {
   void onTapDown(TapDownDetails d) {
     flies.forEach((Planets planets) {
       if (planets.flyRect.contains(d.globalPosition)) {
+        score++;
+        print("Points: " + score.toString());
         planets.onTapDown();
       }
     });
