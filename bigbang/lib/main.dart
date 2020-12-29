@@ -13,8 +13,6 @@ void main() async {
     'bg/backyard.png',
     'files/terra.png',
     'files/marte.png',
-    'files/house-fly-1.png',
-    'files/house-fly-2.png',
     'files/dead.png',
   ]);
 
